@@ -1,8 +1,7 @@
 # auggi-assignment
-### This Github repository is for the image segmentation assignment by auggi 
+
 "Using the CORE50 dataset (core50 link), please compose, train and test an image segmentation algorithm to detect the object "mobile phone". Just to clarify, this is a convolutional neural network that takes an RGB image and spits out a black&white image: the area where the mobile phone is should be in white and the rest should be black. "
 
-Note: The Core50 dataset contains actually image depth information, which can easily help users to extract and to seperate background from the object and the hand holding the object. However, this will not help in our task, since we want to train a network that is capable of detecting and segmenting mobile phone in any images when the depth information of the images is not available.
 
 ### Summary:
 I. Implementing a pretrained model: Mask RCNN
@@ -52,8 +51,10 @@ For the network to learn to detect balloons, the principle is the same as every 
 However, the Core 50 dataset does not contain pixel annotation for the objects in the images. There are therefore several options to train the network.
 
 ##### II. 1) Depth images of the Core50 dataset.
-Although the core 50 dataset does not contain the pixel annotation of the object in its images, it does contain depth information. 
-The creators of Core50 dataset have added the depth information in order to complete easily the object segmentation task. Firstly, an algorithm has been used to discard all pixels belonging to the background. Secondly, an SVM classifier is used to discard the user's hand from the image to only keep the object's pixel in the image. The process is explained in this Github: https://github.com/giacomobartoli/core50_segmentation
+
+Although the core 50 dataset does not contain the pixel annotation of the object in its images, the Core50 dataset does contain image depth information, which can easily help users to extract and to seperate background from the object and the hand holding the object. However, we want to train a network that is capable of detecting and segmenting mobile phone in any images even when the depth information of the images is not available.
+
+Firstly, an algorithm has been used to discard all pixels belonging to the background. Secondly, an SVM classifier is used to discard the user's hand from the image to only keep the object's pixel in the image. The process is explained in this Github: https://github.com/giacomobartoli/core50_segmentation
 
 <img src ="annotations/image_segmentation_CORE50.PNG" width = "800">
 
