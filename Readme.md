@@ -53,7 +53,7 @@ However, the Core 50 dataset does not contain pixel annotation for the objects i
 Although the core 50 dataset does not contain the pixel annotation of the object in its images, it does contain depth information. 
 The creators of Core50 dataset have added the depth information in order to complete easily the object segmentation task. Firstly, an algorithm has been used to discard all pixels belonging to the background. Secondly, an SVM classifier is used to discard the user's hand from the image to only keep the object's pixel in the image. The process is explained in this Github: https://github.com/giacomobartoli/core50_segmentation
 
-<img src ="annotations/image_segmentation_CORE50.PNG" width = "400">
+<img src ="annotations/image_segmentation_CORE50.PNG" width = "800">
 
 This is a pretty efficient way to annotate the images. Unfortunately, the image segmentation results from this process is quite approximated. If we use these results as a the reference to compute the mIoU, it would be the equivalent of using an approximate version of solutions to grade homework, the results will only be even more approximate.Therefore, this is not a feasible option.
 
@@ -61,10 +61,9 @@ This is a pretty efficient way to annotate the images. Unfortunately, the image 
 The author downloaded 75 photos of balloons on Flickr and annotate the balloons area on the images with VGG Image Annotator (VIA) (http://www.robots.ox.ac.uk/~vgg/software/via/). 
 In our case, Core50 has 11 sections of short videos of 50 objects. For mobile phones, there are 5 mobile phones in each section and for each phone there are around 300 frames that were recorded. Therefore, there are in total 11*5*300 = 16500 photos of mobile phone in Core50 dataset. Due to the time constraints, the pixel annotation on every image was not a feasible option, but here are some annotated images for illustration purposes:
 
-![C_01_06_001](https://user-images.githubusercontent.com/55662795/70397223-6f5cac80-19de-11ea-9fd6-76222f2a1d73.PNG)
-![C_01_007_000](https://user-images.githubusercontent.com/55662795/70397224-7683ba80-19de-11ea-8751-4321d8886bff.PNG)
-![C_01_08_000](https://user-images.githubusercontent.com/55662795/70397230-800d2280-19de-11ea-9a15-b1a03751a5c9.PNG)
-![C_01_09_002](https://user-images.githubusercontent.com/55662795/70397361-99fb3500-19df-11ea-90bc-0c243ca9e3ad.PNG)
+<img src ="annotations/C_01_06_001.PNG" width = "400"> <img src ="annotations/C_01_07_000.PNG" width = "400">
+
+<img src ="annotations/C_01_08_000.PNG" width = "400"> <img src ="annotations/C_01_09_002.PNG" width = "400">
 
 Once these photos annotated, they have been exported in a JSON file, and can be further used to train the network.
 In reality, I would imagine that this is the way stool images are annotated. I've also found the paper that was written by auggi's founders David Hachuel and Alfonso Martinez: https://arxiv.org/ftp/arxiv/papers/1903/1903.10578.pdf. The image annotation process was completed using the online collaborative platform Labelbox(www.labelbox.com).
