@@ -6,14 +6,14 @@
 ### Summary:
 I. Implementing a pretrained model: Mask RCNN
 
-
 II. Train the model on CORE50 'mobile phone' photos
-
 
 III. Building test script to test the model on webcam
 
 
-#### I. Implementing a pretrained model: Mask RCNN
+
+
+### I. Implementing a pretrained model: Mask RCNN
 
 In order to compose annd to train a segmentation network to recognize mobile phones, it is possible to use a pre-trained model. In my case, I chose to use Mask R-CNN (regional convolutional neural network) which is a two stage framework: the first stage scans the image and generates proposals(areas likely to contain an object). And the second stage classifies the proposals and generates bounding boxes and masks. 
 Firstly, I used transfer learning. This means that, instead of training a model from scratch, I started with a weights file that’s been trained on the COCO dataset. The COCO dataset contains a lot of other images (~120K), so the trained weights have already learned a lot of the features common in natural images.
@@ -40,7 +40,7 @@ Note: The setup of Mask R-CNN took quite a long time, this is not only because o
 Resources like this is a combination of luck and randomness. It is possible to imagine situations in which we would like to segmentate objects that Mask R-CNN or any public network has never been trained to. In this case, we would need to train the network to learn how to segmentate very particular class of objects. 
 At auggi for instance, I suppose a network has been trained to classify, detect and segmentate stool from images. Due to lack of image dataset on stool, it can be more complicated to train a network to recognize some objects than others. 
 
-#### II. CORE50 mobile phone training photos
+### II. CORE50 mobile phone training photos
 
 Let's suppose now that Mask R-CNN has never been trained on cell phones, how can we train this network on Core50 mobile phone photos?
 There is an excellent resource explaining how this can be done by matterport here (https://engineering.matterport.com/splash-of-color-instance-segmentation-with-mask-r-cnn-and-tensorflow-7c761e238b46).
@@ -71,12 +71,12 @@ Once these photos annotated, they have been exported in a JSON file, and can be 
 In reality, I would imagine that this is the way stool images are annotated. I've also found the paper that was written by auggi's founders David Hachuel and Alfonso Martinez: https://arxiv.org/ftp/arxiv/papers/1903/1903.10578.pdf. The image annotation process was completed using the online collaborative platform Labelbox(www.labelbox.com).
 
 
-#### III. Building test script to test the model on webcam
+### III. Building test script to test the model on webcam
 To build the test script to test the model on a webcam, I have followed this article, where the author explained how to do a real time image segmentation using Mask R-CNN.
 After modifying the real time segmentation python file, the notebook file 'Real_time_segment.ipynb' has been created in order to run the real time image segmentation file on a computer's webcam.
 
 
-#### Conclusion:
+### Conclusion:
 
 In this assignment, I started by exploring the popular image segmentation networks Mask R-CNN that have been pre-trained on the popular COCO dataset. Fortunately, the COCO dataset contains mobile phone pictures, and Mask R-CNN was therefore capable of completing image segmentation on mobile phone. Then, I assumed that Mask R-CNN has never been trained on mobile phone pictures and try to understand what would have needed to be done and there were several options. Annotating manually the images is the most time-consuming but also the most realistic way to annotate images on the pixel level. Once the images were annotated, it is possible to train the network to recognize new objects. Finally, a real time segmentation python file was composed to test the network on webcams.
 
