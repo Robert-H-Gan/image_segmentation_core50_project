@@ -20,6 +20,8 @@ III. Building test script to test the model on webcam
 In order to compose annd to train a segmentation network to recognize mobile phones, it is possible to use a pre-trained model. In my case, I chose to use Mask R-CNN (regional convolutional neural network) which is a two stage framework: the first stage scans the image and generates proposals(areas likely to contain an object). And the second stage classifies the proposals and generates bounding boxes and masks. 
 Firstly, I used transfer learning. This means that, instead of training a model from scratch, I started with a weights file that’s been trained on the COCO dataset. The COCO dataset contains a lot of other images (~120K), so the trained weights have already learned a lot of the features common in natural images.
 
+The pre-trained weights (trained on MS COCO) file "mask_rcnn_balloon.h5" was too large and I couldn't upload it to the github repository. For the program to work, the file need to be downloaded at this link (https://github.com/matterport/Mask_RCNN/releases) and pasted in the samples folder of the Mask_RCNN repository.
+
 Fortunately, the coco dataset has a "cell phone" class, so the Mask R-CNN with the weights file from training on the COCO dataset is capable to classify, detect and segmentate cell phones in images.
 
 Some image segmentation results on Core50 are showed below:
@@ -85,12 +87,14 @@ To conclude, I would like to thank auggi for having given me this opportunity to
 
 1) CORe 50 dataset: https://vlomonaco.github.io/core50/index.html#dataset
 
-2) Implementation of Mask R-CNN: https://www.analyticsvidhya.com/blog/2019/07/computer-vision-implementing-mask-r-cnn-image-segmentation/?utm_source=blog&utm_medium=introduction-image-segmentation-techniques-python
+2) Mask RCNN: https://github.com/matterport/Mask_RCNN/releases
 
-3) Training Mask R-CNN on new objects: https://engineering.matterport.com/splash-of-color-instance-segmentation-with-mask-r-cnn-and-tensorflow-7c761e238b46
+3) Implementation of Mask R-CNN: https://www.analyticsvidhya.com/blog/2019/07/computer-vision-implementing-mask-r-cnn-image-segmentation/?utm_source=blog&utm_medium=introduction-image-segmentation-techniques-python
 
-4) Real time image segmentation with Mask R-CNN: https://www.akshatvasistha.com/2019/10/how-do-real-time-image-segmentation-mask-rcnn.html
+4) Training Mask R-CNN on new objects: https://engineering.matterport.com/splash-of-color-instance-segmentation-with-mask-r-cnn-and-tensorflow-7c761e238b46
 
-5) VGG image annotator: http://www.robots.ox.ac.uk/~vgg/software/via/
+5) Real time image segmentation with Mask R-CNN: https://www.akshatvasistha.com/2019/10/how-do-real-time-image-segmentation-mask-rcnn.html
 
-6) Augmenting Gastrointestinal Health: A Deep Learning Approach to Human Stool Recognition and Characterization in Macroscopic Images: https://arxiv.org/ftp/arxiv/papers/1903/1903.10578.pdf
+6) VGG image annotator: http://www.robots.ox.ac.uk/~vgg/software/via/
+
+7) Augmenting Gastrointestinal Health: A Deep Learning Approach to Human Stool Recognition and Characterization in Macroscopic Images: https://arxiv.org/ftp/arxiv/papers/1903/1903.10578.pdf
