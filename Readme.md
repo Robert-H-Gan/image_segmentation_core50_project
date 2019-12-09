@@ -6,7 +6,6 @@
 ### Summary:
 I. Implementing a pretrained model: Mask RCNN
 
-We are going to use a pretrained image segmentation network called Mask-RCNN and used the pretrained model on COCO dataset. This is really convenient, especially because they are mobile phone photos in COCO dataset. so the network is already capable to segmentate cell phones.
 
 II. Train the model on CORE50 'mobile phone' photos
 
