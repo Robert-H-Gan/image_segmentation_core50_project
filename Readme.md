@@ -80,7 +80,7 @@ After modifying the real time segmentation python file, the notebook file 'Real_
 
 In this assignment, I started by exploring the popular image segmentation networks Mask R-CNN that have been pre-trained on the popular COCO dataset. Fortunately, the COCO dataset contains mobile phone pictures, and Mask R-CNN was therefore capable of completing image segmentation on mobile phone. Then, I assumed that Mask R-CNN has never been trained on mobile phone pictures and try to understand what would have needed to be done and there were several options. Annotating manually the images is the most time-consuming but also the most realistic way to annotate images on the pixel level. Once the images were annotated, it is possible to train the network to recognize new objects. Finally, a real time segmentation python file was composed to test the network on webcams.
 
-To conclude, I would like to thank auggi for having given me this opportunity to work on this assignment, I have enjoyed working on this subject, searching for relevant articles and I have learned a lot.
+To conclude, I would like to thank auggi for having given me this opportunity to work on this assignment, I have learned a lot, and I have enjoyed working on this subject and searching for relevant articles.
 
 
 ### Resources:
