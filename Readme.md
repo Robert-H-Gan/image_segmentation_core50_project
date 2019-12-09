@@ -52,7 +52,9 @@ However, the Core 50 dataset does not contain pixel annotation for the objects i
 ##### II. 1) Depth images of the Core50 dataset.
 Although the core 50 dataset does not contain the pixel annotation of the object in its images, it does contain depth information. 
 The creators of Core50 dataset have added the depth information in order to complete easily the object segmentation task. Firstly, an algorithm has been used to discard all pixels belonging to the background. Secondly, an SVM classifier is used to discard the user's hand from the image to only keep the object's pixel in the image. The process is explained in this Github: https://github.com/giacomobartoli/core50_segmentation
-![2](https://user-images.githubusercontent.com/55662795/70396921-569ec780-19db-11ea-9d5d-af35d9aba763.PNG)
+
+<img src ="annotations/image_segmentation_CORE50.PNG" width = "400">
+
 This is a pretty efficient way to annotate the images. Unfortunately, the image segmentation results from this process is quite approximated. If we use these results as a the reference to compute the mIoU, it would be the equivalent of using an approximate version of solutions to grade homework, the results will only be even more approximate.Therefore, this is not a feasible option.
 
 ##### II. 2) Manual pixel annotation
