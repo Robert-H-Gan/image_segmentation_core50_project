@@ -61,7 +61,7 @@ This can be a pretty efficient way to annotate the images. Unfortunately, the im
 
 ##### II. 2) Manual pixel annotation
 The author downloaded 75 photos of balloons on Flickr and annotate manualy the balloons area on the images with VGG Image Annotator (VIA) (http://www.robots.ox.ac.uk/~vgg/software/via/). 
-In our case, Core50 has 11 sections of short videos of 50 objects. For mobile phones, there are 5 mobile phones in each section and for each phone there are around 300 frames that were recorded. Therefore, there are in total 11*5*300 = 16500 photos of mobile phone in Core50 dataset. Due to the time constraints, the pixel annotation on every image was not a feasible option, but here are some annotated images for illustration purposes:
+In our case, Core50 has 11 sections of short videos of 50 objects. For mobile phones, there are 5 mobile phones in each section and for each phone there are around 300 frames that were recorded. Therefore, there are in total 11 * 5 * 300 = 16500 photos of mobile phone in Core50 dataset. Due to the time constraints, the pixel annotation on every image was not a feasible option, but here are some annotated images for illustration purposes:
 
 <img src ="annotations/C_01_06_001.PNG" width = "400"> <img src ="annotations/C_01_07_000.PNG" width = "400">
 
