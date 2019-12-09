@@ -24,13 +24,13 @@ Fortunately, the coco dataset has a "cell phone" class, so Mask R-CNN was alread
 
 Some image segmentation results on Core50 are showed below:
 
-<img src ="image_segmentation_results/C_01_06_001_segmentation.PNG" width = "300"> <img src ="image_segmentation_results/C_01_06_001_Blackandwhite.PNG" width = "300">
+<img src ="image_segmentation_results/C_01_06_001_segmentation.PNG" width = "250"> <img src ="image_segmentation_results/C_01_06_001_Blackandwhite.PNG" width = "250">
 
-<img src ="image_segmentation_results/C_01_07_000_segmentation.PNG" width = "300"> <img src ="image_segmentation_results/C_01_07_000_Blackandwhite.PNG" width = "300">
+<img src ="image_segmentation_results/C_01_07_000_segmentation.PNG" width = "250"> <img src ="image_segmentation_results/C_01_07_000_Blackandwhite.PNG" width = "250">
 
-<img src ="image_segmentation_results/C_01_08_000_segmentation.PNG" width = "300"> <img src ="image_segmentation_results/C_01_08_000_Blackandwhite.PNG" width = "300">
+<img src ="image_segmentation_results/C_01_08_000_segmentation.PNG" width = "250"> <img src ="image_segmentation_results/C_01_08_000_Blackandwhite.PNG" width = "250">
 
-<img src ="image_segmentation_results/C_01_09_002_segmentation.PNG" width = "300"> <img src ="image_segmentation_results/C_01_09_002_Blackandwhite.PNG" width = "300">
+<img src ="image_segmentation_results/C_01_09_002_segmentation.PNG" width = "250"> <img src ="image_segmentation_results/C_01_09_002_Blackandwhite.PNG" width = "250">
 
 
 More details on the code implementing Mask R-CNN are in the notebook file: "\Mask_RCNN\samples\mrcnn.ipynb"
