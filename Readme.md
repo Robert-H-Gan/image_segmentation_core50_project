@@ -24,13 +24,13 @@ Fortunately, the coco dataset has a "cell phone" class, so Mask R-CNN was alread
 
 Some image segmentation results on Core50 are showed below:
 
-<img src ="image_segmentation_results/C_01_06_001_segmentation.PNG" width = "400"> <img src ="image_segmentation_results/C_01_06_001_Blackandwhite.PNG" width = "400">
+<img src ="image_segmentation_results/C_01_06_001_segmentation.PNG" width = "300"> <img src ="image_segmentation_results/C_01_06_001_Blackandwhite.PNG" width = "300">
 
-<img src ="image_segmentation_results/C_01_07_000_segmentation.PNG" width = "400"> <img src ="image_segmentation_results/C_01_07_000_Blackandwhite.PNG" width = "400">
+<img src ="image_segmentation_results/C_01_07_000_segmentation.PNG" width = "300"> <img src ="image_segmentation_results/C_01_07_000_Blackandwhite.PNG" width = "300">
 
-<img src ="image_segmentation_results/C_01_08_000_segmentation.PNG" width = "400"> <img src ="image_segmentation_results/C_01_08_000_Blackandwhite.PNG" width = "400">
+<img src ="image_segmentation_results/C_01_08_000_segmentation.PNG" width = "300"> <img src ="image_segmentation_results/C_01_08_000_Blackandwhite.PNG" width = "300">
 
-<img src ="image_segmentation_results/C_01_09_002_segmentation.PNG" width = "400"> <img src ="image_segmentation_results/C_01_09_002_Blackandwhite.PNG" width = "400">
+<img src ="image_segmentation_results/C_01_09_002_segmentation.PNG" width = "300"> <img src ="image_segmentation_results/C_01_09_002_Blackandwhite.PNG" width = "300">
 
 
 More details on the code implementing Mask R-CNN are in the notebook file: "\Mask_RCNN\samples\mrcnn.ipynb"
@@ -63,9 +63,9 @@ This can be a pretty efficient way to annotate the images. Unfortunately, the im
 The author downloaded 75 photos of balloons on Flickr and annotate manualy the balloons area on the images with VGG Image Annotator (VIA) (http://www.robots.ox.ac.uk/~vgg/software/via/). 
 In our case, Core50 has 11 sections of short videos of 50 objects. For mobile phones, there are 5 mobile phones in each section and for each phone there are around 300 frames that were recorded. Therefore, there are in total 11 * 5 * 300 = 16500 photos of mobile phone in Core50 dataset. Due to the time constraints, the pixel annotation on every image was not a feasible option, but here are some annotated images for illustration purposes:
 
-<img src ="annotations/C_01_06_001.PNG" width = "400"> <img src ="annotations/C_01_07_000.PNG" width = "400">
+<img src ="annotations/C_01_06_001.PNG" width = "300"> <img src ="annotations/C_01_07_000.PNG" width = "300">
 
-<img src ="annotations/C_01_08_000.PNG" width = "400"> <img src ="annotations/C_01_09_002.PNG" width = "400">
+<img src ="annotations/C_01_08_000.PNG" width = "300"> <img src ="annotations/C_01_09_002.PNG" width = "300">
 
 Once these photos annotated, they have been exported in a JSON file, and can be further used to train the network.
 In reality, I would imagine that this is the way stool images are annotated. I've also found the paper that was written by auggi's founders David Hachuel and Alfonso Martinez: https://arxiv.org/ftp/arxiv/papers/1903/1903.10578.pdf. The image annotation process was completed using the online collaborative platform Labelbox(www.labelbox.com).
