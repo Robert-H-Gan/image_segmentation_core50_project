@@ -15,12 +15,12 @@ III. Building test script to test the model on webcam
 
 ### I. Implementing a pretrained model: Mask RCNN
 
-In order to compose annd to train a segmentation network to recognize mobile phones, it is possible to use a pre-trained model. In my case, I chose to use Mask R-CNN (regional convolutional neural network) which is a two stage framework: the first stage scans the image and generates proposals(areas likely to contain an object). And the second stage classifies the proposals and generates bounding boxes and masks. 
-Firstly, I used transfer learning. This means that, instead of training a model from scratch, I started with a weights file that’s been trained on the COCO dataset. The COCO dataset contains a lot of other images (~120K), so the trained weights have already learned a lot of the features common in natural images.
+Firstly, I used transfer learning. This means that, instead of training a model from scratch, I started with a weights file that’s been trained on the COCO dataset. The COCO dataset contains a lot of other images (~120K), so the trained weights have already learned a lot of the features common in natural images. In my case, I chose to use Mask R-CNN (regional convolutional neural network) which is a two stage framework: the first stage scans the image and generates proposals(areas likely to contain an object). And the second stage classifies the proposals and generates bounding boxes and masks. 
+
 
 The pre-trained weights (trained on MS COCO) file "mask_rcnn_balloon.h5" was too large and I couldn't upload it to the github repository. For the program to work, the file need to be downloaded at this link (https://github.com/matterport/Mask_RCNN/releases) and pasted in the samples folder of the Mask_RCNN repository.
 
-Fortunately, the coco dataset has a "cell phone" class, so the Mask R-CNN with the weights file from training on the COCO dataset is capable to classify, detect and segmentate cell phones in images.
+Fortunately, the coco dataset has a "cell phone" class, so Mask R-CNN was already capable to classify, detect and segmentate cell phones in images.
 
 Some image segmentation results on Core50 are showed below:
 
@@ -37,17 +37,17 @@ More details on the code implementing Mask R-CNN are in the notebook file: "\Mas
 
 Note: The setup of Mask R-CNN took quite a long time, this is not only because of the libraries that need to be used, but also because some libraries required specific older versions. For instance, I needed to downgrade tensorflow and Keras to older versions.
 
-Resources like this is a combination of luck and randomness. It is possible to imagine situations in which we would like to segmentate objects that Mask R-CNN or any public network has never been trained to. In this case, we would need to train the network to learn how to segmentate very particular class of objects. 
-At auggi for instance, I suppose a network has been trained to classify, detect and segmentate stool from images. Due to lack of image dataset on stool, it can be more complicated to train a network to recognize some objects than others. 
+Finding resources like this is quite random. It is more frequent to be in situations in which we would like to segmentate objects that Mask R-CNN or any public network has never been trained to. In this case, we would need to train the network to learn how to segmentate specific class of objects. 
+At auggi for instance, I suppose a network has been trained to classify, detect and segmentate stool from images. Due to the shortness of stool image dataset, it can be more complicated to train a network to recognize objects like stool. 
 
 ### II. CORE50 mobile phone training photos
 
 Let's suppose now that Mask R-CNN has never been trained on cell phones, how can we train this network on Core50 mobile phone photos?
 There is an excellent resource explaining how this can be done by matterport here (https://engineering.matterport.com/splash-of-color-instance-segmentation-with-mask-r-cnn-and-tensorflow-7c761e238b46).
 
-The article explains that they would like to train the Mask R-CNN to recognize "balloons", which is an object class that Mask R-CNN has never learned to detect. 
-For the network to learn to detect balloons, the principle is the same as every machine learning algorithm. The network need to minimize its loss function over the learning process. In image segmentation, mIoU (mean interception over union) is a common metric used to calculate the loss function. The IoU is the ratio between the area of overlap and the area of union between the ground truth and the predicted areas. The mIoU is the average between the IoU of the segmented objects over all the images of the test dataset. Image pixel wise annotation is crucial for image segmentation learning process since it is used to calculate the mIoU. 
-However, the Core 50 dataset does not contain pixel annotation for the objects in the images. There are therefore several options to train the network.
+The article explains that they would like to train the Mask R-CNN to recognize "balloons", which is an object class that Mask R-CNN has never learned to detect in the past. 
+For the network to learn to detect balloons, the principle is the same as every machine learning algorithm. The network need to minimize its loss function over the learning process. In image segmentation, mIoU (mean interception over union) is a common metric used to calculate the loss function. The IoU is the ratio between the area of overlap and the area of union between the ground truth and the predicted areas. Image pixel annotation is crucial for image segmentation learning process since it is used to calculate the mIoU. 
+However, the Core 50 dataset does not contain pixel annotation for the objects in the images. Therefore, there are several options that can be considered to train the network.
 
 ##### II. 1) Depth images of the Core50 dataset.
 
@@ -57,10 +57,10 @@ Firstly, an algorithm has been used to discard all pixels belonging to the backg
 
 <img src ="annotations/image_segmentation_CORE50.PNG" width = "800">
 
-This is a pretty efficient way to annotate the images. Unfortunately, the image segmentation results from this process is quite approximated. If we use these results as a the reference to compute the mIoU, it would be the equivalent of using an approximate version of solutions to grade homework, the results will only be even more approximate.Therefore, this is not a feasible option.
+This can be a pretty efficient way to annotate the images. Unfortunately, the image segmentation results from this process is quite approximate. If we use these results as a the reference to compute the mIoU, it would be the equivalent of using an approximate version of solutions to grade homework, the results will only be even more approximate.Therefore, this is probably not the best option.
 
 ##### II. 2) Manual pixel annotation
-The author downloaded 75 photos of balloons on Flickr and annotate the balloons area on the images with VGG Image Annotator (VIA) (http://www.robots.ox.ac.uk/~vgg/software/via/). 
+The author downloaded 75 photos of balloons on Flickr and annotate manualy the balloons area on the images with VGG Image Annotator (VIA) (http://www.robots.ox.ac.uk/~vgg/software/via/). 
 In our case, Core50 has 11 sections of short videos of 50 objects. For mobile phones, there are 5 mobile phones in each section and for each phone there are around 300 frames that were recorded. Therefore, there are in total 11*5*300 = 16500 photos of mobile phone in Core50 dataset. Due to the time constraints, the pixel annotation on every image was not a feasible option, but here are some annotated images for illustration purposes:
 
 <img src ="annotations/C_01_06_001.PNG" width = "400"> <img src ="annotations/C_01_07_000.PNG" width = "400">
@@ -72,7 +72,7 @@ In reality, I would imagine that this is the way stool images are annotated. I'v
 
 
 ### III. Building test script to test the model on webcam
-To build the test script to test the model on a webcam, I have followed this article, where the author explained how to do a real time image segmentation using Mask R-CNN.
+To build the test script to test the model on a webcam, I have followed this article, where the author explained how to do a real time image segmentation using Mask R-CNN: https://www.akshatvasistha.com/2019/10/how-do-real-time-image-segmentation-mask-rcnn.html
 After modifying the real time segmentation python file, the notebook file 'Real_time_segment.ipynb' has been created in order to run the real time image segmentation file on a computer's webcam.
 
 
