@@ -1,4 +1,4 @@
-# Project
+# Project Core50 image segmentation
 
 "Using the CORE50 dataset, please compose, train and test an image segmentation algorithm to detect the object "mobile phone". Just to clarify, this is a convolutional neural network that takes an RGB image and spits out a black&white image: the area where the mobile phone is should be in white and the rest should be black. "
 
