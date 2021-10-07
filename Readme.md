@@ -1,6 +1,7 @@
 # Project Core50 image segmentation
 
-"Using the CORE50 dataset, please compose, train and test an image segmentation algorithm to detect the object "mobile phone". Just to clarify, this is a convolutional neural network that takes an RGB image and spits out a black&white image: the area where the mobile phone is should be in white and the rest should be black. "
+In this project, I used the CORE50 dataset to compose, train and test an image segmentation algorithm to detect the object "mobile phone". 
+This convolutional neural network takes an RGB image and spits out a black&white image: the area where the mobile phone is will be in white and the rest should be black.
 
 
 ### Summary:
@@ -15,7 +16,7 @@ III. Building test script to test the model on webcam
 
 ### I. Implementing a pretrained model: Mask RCNN
 
-Firstly, instead of training a model from scratch, I decided to employ transfer learning, I started with a weights file that’s been trained on the COCO dataset. The COCO dataset contains many images (~120K), so the trained weights have already learned a lot of the features common in natural images. In my case, I chose to use Mask R-CNN (regional convolutional neural network) which is a two stage framework: the first stage scans the image and generates proposals(areas likely to contain an object). And the second stage classifies the proposals and generates bounding boxes and masks. 
+Firstly, instead of training a model from scratch, transfer learning allowed me to start with a weights file that contains weight values of a CNN that was previously trained on the COCO dataset. The COCO dataset contains many images (~120K), so the trained weights have already learned many features common in natural images. In this case, Mask R-CNN (regional convolutional neural network) is a two stage framework: the first stage scans the image and generates proposals(areas likely to contain an object). The second stage classifies the proposals and generates bounding boxes and masks. 
 
 
 The pre-trained weights (trained on MS COCO) file "mask_rcnn_balloon.h5" was too large and I couldn't upload it to the github repository. For the program to work, the file need to be downloaded at this link (https://github.com/matterport/Mask_RCNN/releases) and pasted in the samples folder of the Mask_RCNN repository.
